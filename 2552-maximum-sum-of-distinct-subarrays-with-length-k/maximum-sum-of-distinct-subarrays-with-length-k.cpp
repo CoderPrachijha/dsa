@@ -18,7 +18,6 @@ public:
                 i++;
             }
             
-           
             if(j - i + 1 == k && freq.size() == k) {
                 res = max(res, sum);
             }
