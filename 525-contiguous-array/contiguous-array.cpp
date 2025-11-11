@@ -1,30 +1,22 @@
 class Solution {
 public:
-    int findMaxLength(vector<int>& arr) {
-        unordered_map<int, int> mp;
-        int presum = 0;
-        int res = 0;
+    int findMaxLength(vector<int>& nums) {
+        unordered_map<int, int> mpp;
 
-        for (int i = 0; i < arr.size(); i++) {
-            
-            if (arr[i] == 0) {
-                presum -= 1;
-            } else {
-                presum += 1;
-            }
+        int prefixsum = 0;
+        int maxi = 0;
 
-            if (presum == 0) {
-                res = i + 1;
-            }
+        for(int i = 0;i < nums.size();i++){
+            if(nums[i] == 0)prefixsum -= 1;
+            else prefixsum += 1;
 
-            if (mp.find(presum) != mp.end()) {
-                res = max(res, i - mp[presum]);
-            } else {
-                mp[presum] = i;
+            if(prefixsum == 0)maxi = max(maxi, i - 0 + 1);
+
+            if(mpp.find(prefixsum) != mpp.end()){
+                maxi = max(maxi, i - mpp[prefixsum]);
             }
+            else mpp[prefixsum] = i;
         }
-
-        return res;
-        
+        return maxi;
     }
 };
