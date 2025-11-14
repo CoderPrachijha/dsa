@@ -22,7 +22,6 @@ public:
             if (tolower(s[i]) != tolower(s[j])) {
                 return false;
             }
-
             i++;
             j--;
         }
