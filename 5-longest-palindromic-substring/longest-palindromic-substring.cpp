@@ -10,7 +10,7 @@ public:
 
         for (int i = 1; i < n; i++) {
 
-            // Case 1: Even length palindromes, center = (i-1 , i)
+           
             int l = i - 1;
             int h = i;
             while (l >= 0 && h < n && s[l] == s[h]) {
@@ -22,7 +22,7 @@ public:
                 h++;
             }
 
-            // Case 2: Odd length palindromes, center = (i)
+            
             l = i - 1;
             h = i + 1;
             while (l >= 0 && h < n && s[l] == s[h]) {
