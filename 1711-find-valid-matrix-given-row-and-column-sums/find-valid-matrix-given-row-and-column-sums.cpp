@@ -11,7 +11,6 @@ public:
             matrix[i][j]=val;
             rowSum[i]-=val;
             colSum[j]-=val;
-
         }
        } 
         return matrix;
