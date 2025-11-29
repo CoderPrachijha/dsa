@@ -1,32 +1,35 @@
 class Solution {
 public:
-    int romanToInt(string s) {
-        unordered_map<char, int> romanMap = {{'I', 1}, 
-                                         {'V', 5}, 
-                                         {'X', 10}, 
-                                         {'L', 50},
-                                         {'C', 100}, 
-                                         {'D', 500}, 
-                                         {'M', 1000}};
-
-    int res = 0;
-    for (int i = 0; i < s.length(); i++) {
-
-        
-        if (i + 1 < s.length() && romanMap[s[i]] < romanMap[s[i + 1]]) {
-            res += romanMap[s[i + 1]] - romanMap[s[i]];
-
-            
-            i++;
+int romanToInt(std::string s) {
+    short sum = 0;
+    char prev = '\0';
+    
+    for (char c : s) {
+        switch (c) {
+            case 'I':
+                sum += 1;
+                break;
+            case 'V':
+                sum += (prev == 'I') ? 3 : 5;
+                break;
+            case 'X':
+                sum += (prev == 'I') ? 8 : 10;
+                break;
+            case 'L':
+                sum += (prev == 'X') ? 30 : 50;
+                break;
+            case 'C':
+                sum += (prev == 'X') ? 80 : 100;
+                break;
+            case 'D':
+                sum += (prev == 'C') ? 300 : 500;
+                break;
+            case 'M':
+                sum += (prev == 'C') ? 800 : 1000;
+                break;
         }
-        else {
-
-           
-            res += romanMap[s[i]];
-        }
+        prev = c;
     }
-
-    return res;
-        
-    }
+    return sum;
+}
 };
