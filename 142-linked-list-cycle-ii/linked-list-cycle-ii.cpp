@@ -21,7 +21,6 @@ public:
         
         if(!isCycle) return NULL;
 
-        
         slow=head;
         while(slow!=fast){
             slow=slow->next;
