@@ -4,7 +4,7 @@ public:
         int n=nums.size(); int left=0;
         int sum=0;
         int minlen=INT_MAX;
-        vector<int>prefix(n);
+        
         for (int i=0;i<n;i++){
             sum+=nums[i];
             while(sum>=target){
