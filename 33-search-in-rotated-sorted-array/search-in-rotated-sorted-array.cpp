@@ -1,15 +1,10 @@
 class Solution {
 public:
-    int search(vector<int>& arr, int key) {
-        int n=arr.size();
-        for(int i=0;i<n;i++){
-            if(arr[i]==key){
+    int search(vector<int>& nums, int target) {
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==target){
                 return i;
-                
             }
-            
-                
-             
         }
         return -1;
         
