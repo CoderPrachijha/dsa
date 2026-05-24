@@ -1,23 +1,13 @@
 class Solution {
 public:
     int hammingWeight(int n) {
-        vector<int>ans;
-         
-        while(n>0){
-            int sum=n%2;
-            ans.push_back(sum);
-            n=n/2;
-        }
-        int count=0;
-        for(int i=0;i<ans.size();i++){
-            if(ans[i]==1){
-                count++;
-            }
+        int count = 0;
+        while (n > 0) {
+            // Agar last bit 1 hai, to count badhao
+            count += (n & 1);
+            // Right shift n to check the next bit
+            n >>= 1;
         }
         return count;
-
-
-
-        
     }
 };
